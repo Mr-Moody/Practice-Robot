@@ -124,7 +124,7 @@ class Robot():
 
     def execute_moves(self,moves):
         for move in moves:
-            direction,speed,time = move[0],move[1],move[2]
+            direction,speed,time = move[0],float(move[1]),float(move[2])
 
             if direction == "forward":
                 self.motor.forward(speed,time)
