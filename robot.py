@@ -126,15 +126,14 @@ class Robot():
         for move in moves:
             direction,speed,time = move[0],move[1],move[2]
 
-            match direction:
-                case "forward":
-                    self.motor.forward(speed,time)
-                case "backward":
-                    self.motor.backward(speed,time)
-                case "left":
-                    self.motor.left(speed,time)
-                case "right":
-                    self.motor.right(speed,time)
+            if direction == "forward":
+                self.motor.forward(speed,time)
+            if direction == "backward":
+                self.motor.backward(speed,time)
+            if direction == "left":
+                self.motor.left(speed,time)
+            if direction == "right":
+                self.motor.right(speed,time)
             
     def run(self):
         moves = self.file.read_moves("moves.txt")
