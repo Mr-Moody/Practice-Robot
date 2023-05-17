@@ -56,7 +56,6 @@ class MotorBoard:
         speed = Duty Cycle Percentage from 0 to 100.
         0 - stop and 100 - maximum speed
         '''    
-        print("Forward")
         if self.testMode:
             self.arrow.on()
         else:
@@ -71,7 +70,6 @@ class MotorBoard:
         speed = Duty Cycle Percentage from 0 to 100.
         0 - stop and 100 - maximum speed
      '''
-        print("Reverse")
         if self.testMode:
             self.arrow.off()
         else:
@@ -82,7 +80,6 @@ class MotorBoard:
     def stop(self):
         ''' Stops power to the motor,
      '''
-        print("Stop")
         self.arrow.off()
         self.PWM.ChangeDutyCycle(0)
         GPIO.output(self.pins['f'],GPIO.LOW)
