@@ -31,6 +31,9 @@
 
     <div class="moves_box">
     <button onclick="add_move()">Add Move</button>
+    <button onclick="save_moves()">Save Moves</button>
+    <button onclick="execute_moves()">Execute Moves</button>
+    <input type="text" id="file_name">
     <ul id="moves-list"><li>Direction Speed Time</li></ul>
     </div>
       
@@ -145,6 +148,32 @@
         const listItem = button.parentNode;
         const movesList = listItem.parentNode;
         movesList.removeChild(listItem);
+    }
+
+    function save_moves(){
+        $.ajax({
+            url: "/save-moves",
+            type: "POST",
+            data: JSON.stringify({}),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(response) {
+                console.log(response);
+            }
+        });
+    }
+
+    function execute_moves(){
+        $.ajax({
+            url: "/execute-moves",
+            type: "POST",
+            data: JSON.stringify(),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(response) {
+                console.log(response);
+            }
+        });
     }
 
 

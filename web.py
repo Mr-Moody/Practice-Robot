@@ -71,6 +71,14 @@ def receive_moves_list():
 
     return jsonify({"response":"storing moves into file {file}"})
 
+@app.route("/save-moves", methods=["POST"])
+def save_moves():
+    return jsonify({"response":"saved moves"})
+
+@app.route("/execute-moves", methods=["POST"])
+def execute_moves():
+    return jsonify({"response":"executing moves"})
+
 if __name__ == "__main__":
     app.debug = True
     app.run(host="0.0.0.0")
