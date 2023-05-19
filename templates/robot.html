@@ -155,16 +155,21 @@
 
     function save_moves(){
         // Get the list element
-        var moves_list = document.getElementById('moves_list');
-
+        var moves_list = document.getElementById("moves_list");
+        const moves_array = [];
         // Get the list items as an HTML collection
-        var listItems = moves_list.getElementsByTagName('li');
+        var list_items = moves_list.getElementsByTagName("li");
 
-        // Convert the HTML collection to an array
-        var array = Array.from(listItems).map(item => item.value);
+        list_items.forEach(function(item) {
+            var direction = item.getElementById("move_direction").value;
+            var speed = item.getElementById("move_speed").value;
+            var time = item.getElementsByTagName("move_time").value;
+            var move = [direction,speed,time];
+            moves_array.push(move);
+        });
 
         // Display the array in the console
-        console.log(array);
+        console.log(moves_array);
 
 
 
