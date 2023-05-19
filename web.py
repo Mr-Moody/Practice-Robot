@@ -81,7 +81,7 @@ def execute_moves():
     if not ".txt" in file_name:
         file_name = file_name + ".txt"
     moves = robot.file.read_moves(file_name)
-    robot.execute(moves)
+    robot.execute_moves(moves)
     return jsonify({"response":"executing moves"})
 
 if __name__ == "__main__":
