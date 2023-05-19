@@ -154,11 +154,11 @@
     }
 
     function save_moves(){
-        const direction_moves = document.getElementById("move_direction").value;
-        const speed_moves = document.getElementById("speed_moves").value;
-        const time_moves = document.getElementById("time_moves").value;
-        const file_name = document.getElementById("file_name").value
-        alert(moves_list)
+        const moves_list = document.getElementById("moves_list").innerHTML;
+        // const speed_moves = document.getElementById("speed_moves");
+        // const time_moves = document.getElementById("time_moves");
+        const file_name = document.getElementById("file_name");
+
         $.ajax({
             url: "/save-moves",
             type: "POST",
