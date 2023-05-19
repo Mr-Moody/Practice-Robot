@@ -74,6 +74,7 @@ def receive_moves_list():
 @app.route("/save-moves", methods=["POST"])
 def save_moves():
     moves_list = request.json["moves_list"]
+    print(f"moves list \n{moves_list}")
     file_name = request.json["file_name"]
     if not ".txt" in file_name:
         file_name = file_name + ".txt"
