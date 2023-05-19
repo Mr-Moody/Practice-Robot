@@ -77,6 +77,11 @@ def save_moves():
 
 @app.route("/execute-moves", methods=["POST"])
 def execute_moves():
+    file_name = request.json["file_name"]
+    if not ".txt" in file_name:
+        file_name = file_name + ".txt"
+    moves = robot.file.read_moves(file_name)
+    robot.execute(moves)
     return jsonify({"response":"executing moves"})
 
 if __name__ == "__main__":

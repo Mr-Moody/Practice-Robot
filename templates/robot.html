@@ -164,10 +164,11 @@
     }
 
     function execute_moves(){
+        const file_name = document.getElementById("file_name")
         $.ajax({
             url: "/execute-moves",
             type: "POST",
-            data: JSON.stringify(),
+            data: JSON.stringify({"file_name":file_name}),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function(response) {
