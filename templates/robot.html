@@ -117,7 +117,7 @@
 
 <script language="JavaScript" type="text/javascript">
     function add_move() {
-        const movesList = document.getElementById("moves-list");
+        const moves_list = document.getElementById("moves-list");
         const newMove = document.createElement("li");
         const selectBox = document.createElement("select");
         const options = ["Forwards", "Backwards", "Left", "Right"];
@@ -141,20 +141,20 @@
         newMove.appendChild(speedBox);
         newMove.appendChild(timeBox);
         newMove.appendChild(deleteButton);
-        movesList.appendChild(newMove);
+        moves_list.appendChild(newMove);
       }
 
     function delete_move(button) {
         const listItem = button.parentNode;
-        const movesList = listItem.parentNode;
-        movesList.removeChild(listItem);
+        const moves_list = listItem.parentNode;
+        moves_list.removeChild(listItem);
     }
 
     function save_moves(){
         $.ajax({
             url: "/save-moves",
             type: "POST",
-            data: JSON.stringify({}),
+            data: JSON.stringify({"moves_list":moves_list, "file_name":file_name}),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function(response) {

@@ -73,6 +73,13 @@ def receive_moves_list():
 
 @app.route("/save-moves", methods=["POST"])
 def save_moves():
+    moves_list = request.json["moves_list"]
+    file_name = request.json["file_name"]
+    if not ".txt" in file_name:
+        file_name = file_name + ".txt"
+
+    robot.file.store_moves(file_name,moves_list)
+
     return jsonify({"response":"saved moves"})
 
 @app.route("/execute-moves", methods=["POST"])
