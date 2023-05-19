@@ -154,21 +154,31 @@
     }
 
     function save_moves(){
-        const moves_list = document.getElementById("moves_list").innerHTML;
-        // const speed_moves = document.getElementById("speed_moves");
-        // const time_moves = document.getElementById("time_moves");
-        const file_name = document.getElementById("file_name");
+        // Get the list element
+        var moves_list = document.getElementById('moves_list');
 
-        $.ajax({
-            url: "/save-moves",
-            type: "POST",
-            data: JSON.stringify({"moves_list":moves_list, "file_name":file_name}),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function(response) {
-                console.log(response);
-            }
-        });
+        // Get the list items as an HTML collection
+        var listItems = moves_list.getElementsByTagName('li');
+
+        // Convert the HTML collection to an array
+        var array = Array.from(listItems).map(item => item.value);
+
+        // Display the array in the console
+        console.log(array);
+
+
+
+
+        // $.ajax({
+        //     url: "/save-moves",
+        //     type: "POST",
+        //     data: JSON.stringify({"moves_list":moves_list, "file_name":file_name}),
+        //     contentType: "application/json; charset=utf-8",
+        //     dataType: "json",
+        //     success: function(response) {
+        //         console.log(response);
+        //     }
+        // });
     }
 
     function execute_moves(){
