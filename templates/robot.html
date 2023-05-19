@@ -164,7 +164,7 @@
     }
 
     function execute_moves(){
-        const file_name = document.getElementById("file_name")
+        const file_name = document.getElementById("file_name").value
         $.ajax({
             url: "/execute-moves",
             type: "POST",
