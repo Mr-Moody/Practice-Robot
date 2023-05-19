@@ -34,7 +34,7 @@
     <button onclick="save_moves()">Save Moves</button>
     <button onclick="execute_moves()">Execute Moves</button>
     <input type="text" id="file_name">
-    <ul id="moves-list"><li>Direction Speed Time</li></ul>
+    <ul id="moves_list"><li>Direction Speed Time</li></ul>
     </div>
       
 </html>
@@ -117,7 +117,7 @@
 
 <script language="JavaScript" type="text/javascript">
     function add_move() {
-        const moves_list = document.getElementById("moves-list");
+        const moves_list = document.getElementById("moves_list");
         const newMove = document.createElement("li");
         const selectBox = document.createElement("select");
         const options = ["Forwards", "Backwards", "Left", "Right"];
@@ -151,6 +151,8 @@
     }
 
     function save_moves(){
+        const moves_list = document.getElementById("moves_list");
+        const file_name = document.getElementById("file_name").value
         alert(moves_list)
         $.ajax({
             url: "/save-moves",
