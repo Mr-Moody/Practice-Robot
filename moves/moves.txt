@@ -1,2 +1,2 @@
-forward,1,1
-left,1,1
+forward,100,5
+left,100,5
