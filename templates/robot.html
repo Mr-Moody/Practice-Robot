@@ -151,7 +151,7 @@
     }
 
     function save_moves(){
-        const moves_list = document.getElementById("moves_list");
+        const moves_list = document.getElementById("moves_list").value;
         const file_name = document.getElementById("file_name").value
         alert(moves_list)
         $.ajax({
